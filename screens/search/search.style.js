@@ -13,7 +13,7 @@ const styles  = StyleSheet.create({
     },
     searchIcon: {
         marginHorizontal: 10,
-        color: COLORS.gray,
+        color: COLORS.gray, 
         marginTop: SIZES.small,
     },
     searchWrapper: {
@@ -35,6 +35,18 @@ const styles  = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: COLORS.primary,
+    },
+    searchImage: {
+        resizeMode:"contain",
+        width: SIZES.width -80,
+        height: SIZES.height -300,
+    },
+    loadingContainer: {
+        // flex: 1,
+        height: SIZES.height,
+        width: SIZES.width,
+        alignItems: "center",
+        alignContent: "center",
     },
 })
 

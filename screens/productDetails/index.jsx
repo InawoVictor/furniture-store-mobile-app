@@ -3,8 +3,12 @@ import React, {useState} from 'react'
 import styles from './ProductDetails.style'
 import { Fontisto, Ionicons, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons'
 import { COLORS, SIZES } from '../../constants'
+import { useRoute } from '@react-navigation/native'
 
 const ProductDetails = ({navigation}) => {
+  const route = useRoute();
+  const {item} = route.params;
+
   const [count, setCount] = useState(1)
 
   const increement = () => {
@@ -27,13 +31,13 @@ const ProductDetails = ({navigation}) => {
         </View>
         <Image
           style={styles.Image} 
-          source={{uri:  "https://d326fntlu7tb1e.cloudfront.net/uploads/cb2e64a8-ad4c-4d45-b58b-b0c7e11b6bb4-fn1.jpg"}}
+          source={{uri: item.imageUrl}}
         />
           <View style={styles.details}>
             <View style={styles.titleRow}>
-              <Text style={styles.title}>Product</Text>
+              <Text style={styles.title}>{item.title}</Text>
               <View style={styles.priceWrapper}>
-                <Text style={styles.price}>$100.00</Text>
+                <Text style={styles.price}>${item.price}</Text>
               </View>
             </View>
             <View style={styles.ratingRow}>
@@ -57,15 +61,7 @@ const ProductDetails = ({navigation}) => {
             </View>
             <View style={styles.descriptionWrapper}>
                 <Text style={styles.description}>Description</Text>
-                <Text style={styles.descText}>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing 
-                  elit.que Donec sodales sagittis magna.
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.que
-                  Donec sodales sagittis magna.
-                  Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-                  Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-                  Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-                  Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+                <Text style={styles.descText}>{item.description}
                 </Text>
             </View>
 
@@ -73,7 +69,7 @@ const ProductDetails = ({navigation}) => {
               <View style={styles.location}>
                 <View style={{flexDirection: 'row'}}>
                   <Ionicons name='location-outline' size={20} />
-                  <Text> Ogoja </Text>
+                  <Text> {item.product_location} </Text>
                 </View>
 
                 <View style={{flexDirection: 'row'}}>

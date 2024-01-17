@@ -7,7 +7,7 @@ import useFetch from '../../../hook/useFetch'
 styles
 
 const ProductRow = () => {
-    const {data, loading, error} = useFetch()
+    const {data, loading, error} = useFetch("/api/products/")
     const products = [1,2,3,4]
 
   return (

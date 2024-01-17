@@ -2,7 +2,7 @@
 import axios  from 'axios'
 import {useState, useEffect} from 'react'
 
-const useFetch = () => {
+const useFetch = (URL) => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
@@ -11,7 +11,7 @@ const useFetch = () => {
         setLoading(true);
 
         try {
-            const response = await axios.get(`${process.env.BASE_URL}/api/products/`);
+            const response = await axios.get(`${process.env.BASE_URL}${URL}`);
             setData(response.data);
             setLoading(false);            
         } catch (error) {
